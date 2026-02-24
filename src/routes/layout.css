@@ -1,1 +1,69 @@
 @import 'tailwindcss';
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	@apply bg-[#f6f3ee] text-slate-900 antialiased;
+}
+
+main {
+	@apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+[data-inview] {
+	@apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+}
+
+[data-inview='true'] {
+	@apply opacity-100 translate-y-0;
+}
+
+.section-inview {
+	@apply will-change-transform;
+}
+
+@keyframes hero-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes hero-bg-zoom {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.05);
+	}
+}
+
+.hero-fade-in {
+	animation: hero-fade-in 650ms ease-out both;
+}
+
+.hero-bg-zoom {
+	animation: hero-bg-zoom 22s ease-out forwards;
+}
+
+.card-hover {
+	@apply rounded-2xl bg-white/80 border border-slate-200/70 shadow-sm transition-all duration-300 ease-out;
+}
+
+.card-hover:hover {
+	@apply -translate-y-1 md:-translate-y-2 shadow-lg;
+}
+
+.btn-primary {
+	@apply inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-transform duration-200 ease-out hover:bg-emerald-800 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f6f3ee];
+}
+
+.btn-secondary {
+	@apply inline-flex items-center justify-center rounded-full border border-emerald-700/70 bg-white/80 px-6 py-3 text-sm font-semibold text-emerald-900 shadow-sm transition-transform duration-200 ease-out hover:bg-white hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f6f3ee];
+}
