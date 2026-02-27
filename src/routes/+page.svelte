@@ -1,5 +1,4 @@
-<h1>Hej, jeg hedder Felix og dette er min første web-app!</h1>
-<p>Jeg er i gang med at lære SvelteKit.</p>
+
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import type { Action } from 'svelte/action';
