@@ -148,7 +148,7 @@
 				</p>
 
 				<div class="flex flex-wrap items-center gap-3">
-					<a href="#kontakt" class="btn-primary">Kontakt Felix</a>
+					<a href="#kontakt" class="btn-primary">Kontakt Felix Bitsch</a>
 					<button type="button" class="btn-secondary" on:click={() => scrollToSection('om-felix')}>
 						Læs mere
 					</button>
@@ -178,11 +178,11 @@
 
 			<div class="relative mt-4 w-full max-w-sm self-stretch lg:mt-0 lg:w-80">
 				<div
-					class="hero-bg-zoom absolute inset-6 -z-10 rounded-3xl bg-[url('https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center opacity-60"
+					class="hero-bg-zoom absolute inset-4 -z-10 rounded-[2.2rem] bg-[url('/images/gjesso-hero.jpg')] bg-cover bg-center opacity-100"
 					aria-hidden="true"
 				/>
 				<div
-					class="relative h-full rounded-3xl bg-white/80 p-5 shadow-lg ring-1 ring-slate-200 section-inview"
+					class="relative h-full rounded-[2rem] bg-white/80 p-6 sm:p-7 shadow-xl ring-1 ring-white/70 backdrop-blur-sm section-inview"
 					use:useInView={{ delay: 150 }}
 				>
 					<div class="mb-4 flex items-center justify-between gap-3">
@@ -289,7 +289,7 @@
 					}
 				] as service, index}
 					<article
-						class="card-hover section-inview flex flex-col justify-between p-5"
+						class="card-hover section-inview flex flex-col justify-between p-6 sm:p-7"
 						use:useInView={{ delay: 120 * index }}
 					>
 						<div class="space-y-3">
@@ -349,7 +349,7 @@
 					}
 				] as item, index}
 					<div
-						class="card-hover section-inview p-5"
+						class="card-hover section-inview p-6 sm:p-7"
 						use:useInView={{ delay: 80 * index }}
 					>
 						<h3 class="text-sm font-semibold text-slate-900 sm:text-base">{item.title}</h3>
@@ -384,7 +384,7 @@
 				</div>
 			</div>
 
-			<form class="card-hover space-y-4 p-5" novalidate>
+			<form class="card-hover space-y-4 p-6 sm:p-7" novalidate>
 				<div>
 					<label for="navn" class="block text-xs font-medium uppercase tracking-wide text-slate-700">
 						Navn
