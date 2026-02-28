@@ -468,8 +468,8 @@
 		background-color: transparent;
 	}
 	.gallery-item--tall {
-		grid-row: span 2;
-		min-height: 18rem;
+		grid-row: 1 / -1;
+		min-height: 100%;
 	}
 	.gallery-item--main {
 		grid-column: 1;
