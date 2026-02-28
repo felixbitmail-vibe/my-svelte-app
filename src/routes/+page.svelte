@@ -138,12 +138,8 @@
 			<div class="gallery">
 				<div class="gallery-item gallery-item--main" style="background-image: url('/images/dog-walk-nature.png')"></div>
 				<div class="gallery-item gallery-item--contain gallery-item--tall" style="background-image: url('/images/winter-dog-walk.png')"></div>
-				<div class="gallery-item" style="background-image: url('/images/natur-1.jpg')"></div>
-				<div class="gallery-item" style="background-image: url('/images/hund-1.jpg')"></div>
-				<div class="gallery-item" style="background-image: url('/images/natur-2.jpg')"></div>
-				<div class="gallery-item" style="background-image: url('/images/hund-2.jpg')"></div>
 			</div>
-			<p class="gallery-hint">Tilføj flere natur- og hundebilleder ved at lægge filer (fx natur-1.jpg, hund-1.jpg) i mappen <code>static/images/</code>.</p>
+			<p class="gallery-hint">Du kan tilføje flere billeder i mappen <code>static/images/</code>.</p>
 		</div>
 	</section>
 
@@ -454,7 +450,7 @@
 	}
 	.gallery {
 		display: grid;
-		grid-template-columns: 1.4fr 1fr 1fr;
+		grid-template-columns: 1.4fr 1fr;
 		grid-template-rows: repeat(3, 9rem);
 		gap: 0.75rem;
 		border-radius: 1rem;
@@ -494,7 +490,7 @@
 	@media (max-width: 640px) {
 		.gallery {
 			grid-template-columns: 1fr;
-			grid-template-rows: 14rem 10rem 10rem 10rem 10rem 10rem;
+			grid-template-rows: 14rem 10rem;
 		}
 		.gallery-item--main {
 			grid-column: 1;
