@@ -469,6 +469,7 @@
 	.gallery-item--contain {
 		background-size: contain;
 		background-repeat: no-repeat;
+		background-color: transparent;
 	}
 	.gallery-item--tall {
 		grid-row: span 2;
