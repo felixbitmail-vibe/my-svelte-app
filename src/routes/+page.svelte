@@ -202,6 +202,11 @@
 		opacity: 1;
 		transform: none;
 	}
+	/* Sektioner under hero skal altid være synlige */
+	.section .animate-section {
+		opacity: 1;
+		transform: none;
+	}
 
 	/* Hero */
 	.hero {
