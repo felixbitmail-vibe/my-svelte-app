@@ -137,7 +137,7 @@
 			<p class="gallery-intro">Luftning i skov og mark – her er et indblik i turene.</p>
 			<div class="gallery">
 				<div class="gallery-item gallery-item--main" style="background-image: url('/images/dog-walk-nature.png')"></div>
-				<div class="gallery-item" style="background-image: url('/images/winter-dog-walk.png')"></div>
+				<div class="gallery-item gallery-item--contain gallery-item--tall" style="background-image: url('/images/winter-dog-walk.png')"></div>
 				<div class="gallery-item" style="background-image: url('/images/natur-1.jpg')"></div>
 				<div class="gallery-item" style="background-image: url('/images/hund-1.jpg')"></div>
 				<div class="gallery-item" style="background-image: url('/images/natur-2.jpg')"></div>
@@ -465,6 +465,14 @@
 		background-position: center;
 		background-color: #e2e8f0;
 		min-height: 6rem;
+	}
+	.gallery-item--contain {
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	.gallery-item--tall {
+		grid-row: span 2;
+		min-height: 18rem;
 	}
 	.gallery-item--main {
 		grid-column: 1;
