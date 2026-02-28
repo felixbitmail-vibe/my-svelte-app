@@ -3,7 +3,7 @@
 </script>
 
 <main class="min-h-[80vh] flex flex-col items-center justify-center text-center px-4">
-	<h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+	<h1 class="text-4xl font-bold tracking-tight sm:text-5xl bg-gradient-to-r from-green-600 to-yellow-500 bg-clip-text text-transparent">
 		Velkommen
 	</h1>
 	<p class="mt-4 text-lg text-slate-600 max-w-md">
