@@ -51,6 +51,17 @@
 			<h1 class="hero-title">Tryg hundeluftning i Gjessø.</h1>
 			<p class="hero-subtitle">For dig og din hund – 30 min, time eller hele dage i trygge hænder</p>
 			<a href="#priser" class="hero-cta">Se priser og book</a>
+			<div class="hero-video-wrap">
+				<video
+					class="hero-video"
+					controls
+					preload="metadata"
+					aria-label="Video om hundeluftning i naturen"
+				>
+					<source src="/videos/hero.mp4" type="video/mp4" />
+					Din browser understøtter ikke videoafspilning.
+				</video>
+			</div>
 		</div>
 	</section>
 
@@ -254,6 +265,21 @@
 	.hero-cta:hover {
 		transform: translateY(-2px);
 		box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+	}
+	.hero-video-wrap {
+		margin-top: 2rem;
+		border-radius: 0.75rem;
+		overflow: hidden;
+		box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.35);
+		max-width: 32rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.hero-video {
+		display: block;
+		width: 100%;
+		height: auto;
+		vertical-align: middle;
 	}
 
 	/* Sections */
