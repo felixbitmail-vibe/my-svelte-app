@@ -48,7 +48,7 @@
 	<section class="hero">
 		<div class="hero-overlay"></div>
 		<div class="hero-content animate-section">
-			<h1 class="hero-title">Hundeluftning der giver ro i maven</h1>
+			<h1 class="hero-title">Tryg hundeluftning i Gjessø.</h1>
 			<p class="hero-subtitle">For dig og din hund – 30 min, time eller hele dage i trygge hænder</p>
 			<a href="#priser" class="hero-cta">Se priser og book</a>
 		</div>
