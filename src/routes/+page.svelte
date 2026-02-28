@@ -54,7 +54,7 @@
 	</section>
 
 	<!-- Om mig -->
-	<section class="section section--alt">
+	<section class="section section--bg" style="--bg-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80');">
 		<div class="container animate-section">
 			<h2 class="section-title">Om Gjessø Hundelufter</h2>
 			<div class="about-grid">
@@ -86,7 +86,7 @@
 	</section>
 
 	<!-- Hvorfor vælge mig -->
-	<section class="section section--alt">
+	<section class="section section--bg" style="--bg-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&q=80');">
 		<div class="container animate-section">
 			<h2 class="section-title">Hvorfor vælge mig</h2>
 			<div class="reasons">
@@ -130,7 +130,7 @@
 	</section>
 
 	<!-- Galleri: natur og glade hunde -->
-	<section class="section section--alt">
+	<section class="section section--bg" style="--bg-image: url('https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&q=80');">
 		<div class="container animate-section">
 			<h2 class="section-title">Ture og natur</h2>
 			<p class="gallery-intro">Luftning i skov og mark – her er et indblik i turene.</p>
@@ -154,9 +154,8 @@
 				<p class="contact-intro">Skriv eller ring – så finder vi en tid der passer.</p>
 				<div class="contact-details">
 					<a href="mailto:kontakt@gjesso-hundelufter.dk" class="contact-link">kontakt@gjesso-hundelufter.dk</a>
-					<a href="tel:+4512345678" class="contact-link">+45 12 34 56 78</a>
+					<a href="tel:+4529854561" class="contact-link">29 85 45 61</a>
 				</div>
-				<p class="contact-note">Erstat med din rigtige e-mail og telefonnummer.</p>
 			</div>
 		</div>
 	</section>
@@ -198,7 +197,7 @@
 	/* Hero */
 	.hero {
 		position: relative;
-		min-height: 85vh;
+		min-height: 70vh;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -216,7 +215,7 @@
 		position: relative;
 		z-index: 1;
 		text-align: center;
-		padding: 2rem 1.5rem;
+		padding: 1.5rem 1.25rem;
 		max-width: 36rem;
 	}
 	.hero-title {
@@ -250,21 +249,56 @@
 
 	/* Sections */
 	.section {
-		padding: 4rem 1.5rem;
+		padding: 2.25rem 1.25rem;
 	}
-	.section--alt {
-		background: #f0fdf4;
+	.section--bg {
+		position: relative;
+		background-image: var(--bg-image);
+		background-size: cover;
+		background-position: center;
+		background-color: #14532d;
 	}
+	.section--bg::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to bottom, rgba(20, 83, 45, 0.75) 0%, rgba(22, 101, 52, 0.82) 100%);
+	}
+	.section--bg .container {
+		position: relative;
+		z-index: 1;
+	}
+	.section--bg .section-title {
+		color: white;
+		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	}
+	.section--bg .about-text p,
+	.section--bg .reason-card,
+	.section--bg .reason-title,
+	.section--bg .reason-text,
+	.section--bg .gallery-intro,
+	.section--bg .gallery-hint {
+		color: inherit;
+	}
+	.section--bg .reason-card {
+		background: rgba(255, 255, 255, 0.95);
+	}
+	.section--bg .reason-title { color: #14532d; }
+	.section--bg .reason-text { color: #475569; }
+	.section--bg .gallery-intro { color: rgba(255, 255, 255, 0.95); }
+	.section--bg .gallery-hint { color: rgba(255, 255, 255, 0.8); }
+	.section--bg .gallery-hint code { background: rgba(0, 0, 0, 0.2); color: white; }
+	.section--bg .about-text p { color: rgba(255, 255, 255, 0.95); }
 	.container {
 		max-width: 72rem;
 		margin: 0 auto;
 	}
 	.section-title {
-		font-size: 1.875rem;
+		font-size: 1.625rem;
 		font-weight: 700;
 		color: #14532d;
 		text-align: center;
-		margin-bottom: 2.5rem;
+		margin-bottom: 1.5rem;
 	}
 
 	/* About */
@@ -281,7 +315,7 @@
 	/* Priser */
 	.price-list {
 		max-width: 24rem;
-		margin: 0 auto 1.5rem;
+		margin: 0 auto 1rem;
 		background: white;
 		border-radius: 1rem;
 		padding: 1.5rem 2rem;
@@ -324,11 +358,11 @@
 	.reasons {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-		gap: 1.5rem;
+		gap: 1rem;
 	}
 	.reason-card {
 		text-align: center;
-		padding: 1.5rem;
+		padding: 1.25rem;
 		background: white;
 		border-radius: 1rem;
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -364,7 +398,7 @@
 	.steps {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-		gap: 1.5rem;
+		gap: 1rem;
 	}
 	.step {
 		display: flex;
@@ -400,7 +434,7 @@
 	.gallery-intro {
 		text-align: center;
 		color: #64748b;
-		margin-bottom: 1.25rem;
+		margin-bottom: 0.75rem;
 		max-width: 36rem;
 		margin-left: auto;
 		margin-right: auto;
@@ -408,7 +442,7 @@
 	.gallery {
 		display: grid;
 		grid-template-columns: 1.4fr 1fr 1fr;
-		grid-template-rows: repeat(3, 10rem);
+		grid-template-rows: repeat(3, 9rem);
 		gap: 0.75rem;
 		border-radius: 1rem;
 		overflow: hidden;
@@ -451,7 +485,7 @@
 		max-width: 32rem;
 		margin: 0 auto;
 		text-align: center;
-		padding: 2rem;
+		padding: 1.5rem;
 		background: #f0fdf4;
 		border-radius: 1rem;
 		border: 2px solid #bbf7d0;
@@ -487,7 +521,7 @@
 	.footer {
 		background: #14532d;
 		color: white;
-		padding: 2.5rem 1.5rem;
+		padding: 1.75rem 1.5rem;
 		text-align: center;
 	}
 	.footer-inner {
