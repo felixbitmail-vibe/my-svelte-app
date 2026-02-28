@@ -54,7 +54,7 @@
 	</section>
 
 	<!-- Om mig -->
-	<section class="section section--bg" style="--bg-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80');">
+	<section class="section section--bg">
 		<div class="container animate-section">
 			<h2 class="section-title">Om Gjessø Hundelufter</h2>
 			<div class="about-grid">
@@ -86,7 +86,7 @@
 	</section>
 
 	<!-- Hvorfor vælge mig -->
-	<section class="section section--bg" style="--bg-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&q=80');">
+	<section class="section section--bg">
 		<div class="container animate-section">
 			<h2 class="section-title">Hvorfor vælge mig</h2>
 			<div class="reasons">
@@ -130,7 +130,7 @@
 	</section>
 
 	<!-- Galleri: natur og glade hunde -->
-	<section class="section section--bg" style="--bg-image: url('https://images.unsplash.com/photo-1511497584788-876760111969?w=1200&q=80');">
+	<section class="section section--bg">
 		<div class="container animate-section">
 			<h2 class="section-title">Ture og natur</h2>
 			<p class="gallery-intro">Luftning i skov og mark – her er et indblik i turene.</p>
@@ -253,7 +253,7 @@
 	}
 	.section--bg {
 		position: relative;
-		background-image: var(--bg-image);
+		background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80');
 		background-size: cover;
 		background-position: center;
 		background-color: #14532d;
