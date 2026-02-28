@@ -137,7 +137,7 @@
 			<p class="gallery-intro">Luftning i skov og mark – her er et indblik i turene.</p>
 			<div class="gallery">
 				<div class="gallery-item gallery-item--main" style="background-image: url('/images/dog-walk-nature.png')"></div>
-				<div class="gallery-item" style="background-image: url('/images/gjesso-hero.jpg')"></div>
+				<div class="gallery-item" style="background-image: url('/images/winter-dog-walk.png')"></div>
 				<div class="gallery-item" style="background-image: url('/images/natur-1.jpg')"></div>
 				<div class="gallery-item" style="background-image: url('/images/hund-1.jpg')"></div>
 				<div class="gallery-item" style="background-image: url('/images/natur-2.jpg')"></div>
