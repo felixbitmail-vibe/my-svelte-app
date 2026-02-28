@@ -43,6 +43,7 @@
 </svelte:head>
 
 <div class="page">
+	<div class="page-bg" aria-hidden="true"></div>
 	<!-- Hero -->
 	<section class="hero">
 		<div class="hero-overlay"></div>
@@ -70,7 +71,7 @@
 	</section>
 
 	<!-- Priser -->
-	<section id="priser" class="section">
+	<section id="priser" class="section section--white">
 		<div class="container animate-section">
 			<h2 class="section-title">Priser</h2>
 			<div class="price-list">
@@ -112,7 +113,7 @@
 	</section>
 
 	<!-- Sådan fungerer det -->
-	<section class="section">
+	<section class="section section--white">
 		<div class="container animate-section">
 			<h2 class="section-title">Sådan fungerer det</h2>
 			<div class="steps">
@@ -147,7 +148,7 @@
 	</section>
 
 	<!-- Kontakt -->
-	<section id="kontakt" class="section">
+	<section id="kontakt" class="section section--white">
 		<div class="container animate-section">
 			<h2 class="section-title">Kontakt og booking</h2>
 			<div class="contact-box">
@@ -172,7 +173,23 @@
 
 <style>
 	.page {
+		position: relative;
 		overflow-x: hidden;
+	}
+	.page-bg {
+		position: fixed;
+		inset: 0;
+		z-index: 0;
+		background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80');
+		background-size: cover;
+		background-position: center;
+		background-color: #14532d;
+	}
+	.page > .hero,
+	.page > .section,
+	.page > footer {
+		position: relative;
+		z-index: 1;
 	}
 
 	.animate-section {
@@ -201,10 +218,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-image: url('/images/gjesso-hero.jpg');
-		background-size: cover;
-		background-position: center;
-		background-color: #14532d;
 	}
 	.hero-overlay {
 		position: absolute;
@@ -251,18 +264,18 @@
 	.section {
 		padding: 2.25rem 1.25rem;
 	}
+	.section--white {
+		background: rgba(255, 255, 255, 0.97);
+	}
 	.section--bg {
 		position: relative;
-		background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80');
-		background-size: cover;
-		background-position: center;
-		background-color: #14532d;
 	}
 	.section--bg::before {
 		content: '';
 		position: absolute;
 		inset: 0;
-		background: linear-gradient(to bottom, rgba(20, 83, 45, 0.75) 0%, rgba(22, 101, 52, 0.82) 100%);
+		background: linear-gradient(to bottom, rgba(20, 83, 45, 0.72) 0%, rgba(22, 101, 52, 0.8) 100%);
+		pointer-events: none;
 	}
 	.section--bg .container {
 		position: relative;
