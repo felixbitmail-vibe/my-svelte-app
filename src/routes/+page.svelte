@@ -16,26 +16,10 @@
 		return () => observer.disconnect();
 	});
 
-	const packages = [
-		{
-			title: 'Halv time',
-			desc: 'Kort tur i nærheden – perfekt til en hurtig luftning.',
-			price: 'Pris ved forespørgsel',
-			cta: 'Vælg'
-		},
-		{
-			title: 'Time',
-			desc: 'Ordentlig tur med masser af snusen og motion i naturen.',
-			price: 'Pris ved forespørgsel',
-			cta: 'Vælg',
-			highlight: true
-		},
-		{
-			title: 'Hele dage',
-			desc: 'Dagpasning med ture og ro – din hund er i trygge hænder.',
-			price: 'Pris ved forespørgsel',
-			cta: 'Vælg'
-		}
+	const prices = [
+		{ label: '30 min luftning', amount: '30 kr' },
+		{ label: '1 time luftning', amount: '60 kr' },
+		{ label: 'Dags pasning', amount: '100 kr' }
 	];
 
 	const reasons = [
@@ -65,7 +49,7 @@
 		<div class="hero-content animate-section">
 			<h1 class="hero-title">Hundeluftning der giver ro i maven</h1>
 			<p class="hero-subtitle">For dig og din hund – 30 min, time eller hele dage i trygge hænder</p>
-			<a href="#pakker" class="hero-cta">Se priser og book</a>
+			<a href="#priser" class="hero-cta">Se priser og book</a>
 		</div>
 	</section>
 
@@ -85,20 +69,19 @@
 		</div>
 	</section>
 
-	<!-- Pakker -->
-	<section id="pakker" class="section">
+	<!-- Priser -->
+	<section id="priser" class="section">
 		<div class="container animate-section">
-			<h2 class="section-title">Vælg din pakke</h2>
-			<div class="packages">
-				{#each packages as pkg}
-					<article class="package-card" class:package-card--highlight={pkg.highlight}>
-						<h3 class="package-title">{pkg.title}</h3>
-						<p class="package-desc">{pkg.desc}</p>
-						<p class="package-price">{pkg.price}</p>
-						<a href="#kontakt" class="package-cta">{pkg.cta}</a>
-					</article>
+			<h2 class="section-title">Priser</h2>
+			<div class="price-list">
+				{#each prices as p}
+					<div class="price-row">
+						<span class="price-label">{p.label}</span>
+						<span class="price-amount">{p.amount}</span>
+					</div>
 				{/each}
 			</div>
+			<p class="price-note">Kontakt mig for booking – se <a href="#kontakt">kontakt</a> nedenfor.</p>
 		</div>
 	</section>
 
@@ -146,16 +129,20 @@
 		</div>
 	</section>
 
-	<!-- Galleri -->
+	<!-- Galleri: natur og glade hunde -->
 	<section class="section section--alt">
 		<div class="container animate-section">
 			<h2 class="section-title">Ture og natur</h2>
+			<p class="gallery-intro">Luftning i skov og mark – her er et indblik i turene.</p>
 			<div class="gallery">
-				<div class="gallery-item gallery-item--main" style="background-image: url('/images/gjesso-hero.jpg')"></div>
-				<div class="gallery-item" style="background: linear-gradient(135deg, #86efac 0%, #4ade80 100%);"></div>
-				<div class="gallery-item" style="background: linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 100%);"></div>
-				<div class="gallery-item" style="background: linear-gradient(135deg, #bbf7d0 0%, #86efac 100%);"></div>
+				<div class="gallery-item gallery-item--main" style="background-image: url('/images/dog-walk-nature.png')"></div>
+				<div class="gallery-item" style="background-image: url('/images/gjesso-hero.jpg')"></div>
+				<div class="gallery-item" style="background-image: url('/images/natur-1.jpg')"></div>
+				<div class="gallery-item" style="background-image: url('/images/hund-1.jpg')"></div>
+				<div class="gallery-item" style="background-image: url('/images/natur-2.jpg')"></div>
+				<div class="gallery-item" style="background-image: url('/images/hund-2.jpg')"></div>
 			</div>
+			<p class="gallery-hint">Tilføj flere natur- og hundebilleder ved at lægge filer (fx natur-1.jpg, hund-1.jpg) i mappen <code>static/images/</code>.</p>
 		</div>
 	</section>
 
@@ -291,59 +278,46 @@
 		color: #334155;
 	}
 
-	/* Packages */
-	.packages {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-		gap: 1.5rem;
-	}
-	.package-card {
+	/* Priser */
+	.price-list {
+		max-width: 24rem;
+		margin: 0 auto 1.5rem;
 		background: white;
 		border-radius: 1rem;
-		padding: 1.75rem;
+		padding: 1.5rem 2rem;
 		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
-		border: 2px solid transparent;
-		transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
 	}
-	.package-card:hover {
-		transform: translateY(-4px);
-		box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+	.price-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.75rem 0;
+		border-bottom: 1px solid #e2e8f0;
 	}
-	.package-card--highlight {
-		border-color: #22c55e;
-		background: linear-gradient(to bottom, #f0fdf4, white);
+	.price-row:last-child {
+		border-bottom: none;
 	}
-	.package-title {
-		font-size: 1.25rem;
+	.price-label {
+		font-size: 1.0625rem;
+		color: #334155;
+	}
+	.price-amount {
 		font-weight: 700;
-		color: #14532d;
-		margin-bottom: 0.5rem;
+		color: #15803d;
+		font-size: 1.125rem;
 	}
-	.package-desc {
+	.price-note {
+		text-align: center;
 		font-size: 0.9375rem;
 		color: #64748b;
-		line-height: 1.6;
-		margin-bottom: 1rem;
 	}
-	.package-price {
-		font-weight: 600;
+	.price-note a {
 		color: #15803d;
-		margin-bottom: 1rem;
-	}
-	.package-cta {
-		display: inline-block;
-		padding: 0.5rem 1.25rem;
-		background: #22c55e;
-		color: white;
 		font-weight: 600;
-		font-size: 0.875rem;
-		border-radius: 9999px;
 		text-decoration: none;
-		transition: background 0.2s, transform 0.2s;
 	}
-	.package-cta:hover {
-		background: #16a34a;
-		transform: scale(1.02);
+	.price-note a:hover {
+		text-decoration: underline;
 	}
 
 	/* Reasons */
@@ -423,10 +397,18 @@
 	}
 
 	/* Gallery */
+	.gallery-intro {
+		text-align: center;
+		color: #64748b;
+		margin-bottom: 1.25rem;
+		max-width: 36rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
 	.gallery {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: repeat(2, 12rem);
+		grid-template-columns: 1.4fr 1fr 1fr;
+		grid-template-rows: repeat(3, 10rem);
 		gap: 0.75rem;
 		border-radius: 1rem;
 		overflow: hidden;
@@ -434,17 +416,29 @@
 	.gallery-item {
 		background-size: cover;
 		background-position: center;
-		min-height: 8rem;
+		background-color: #e2e8f0;
+		min-height: 6rem;
 	}
 	.gallery-item--main {
 		grid-column: 1;
 		grid-row: 1 / -1;
 		min-height: 100%;
 	}
+	.gallery-hint {
+		text-align: center;
+		font-size: 0.8125rem;
+		color: #94a3b8;
+		margin-top: 1rem;
+	}
+	.gallery-hint code {
+		background: #e2e8f0;
+		padding: 0.15rem 0.4rem;
+		border-radius: 0.25rem;
+	}
 	@media (max-width: 640px) {
 		.gallery {
 			grid-template-columns: 1fr;
-			grid-template-rows: 16rem 8rem 8rem 8rem;
+			grid-template-rows: 14rem 10rem 10rem 10rem 10rem 10rem;
 		}
 		.gallery-item--main {
 			grid-column: 1;
