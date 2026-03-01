@@ -82,7 +82,7 @@
 	</section>
 
 	<!-- Om mig -->
-	<section class="section section--white">
+	<section class="section section--bg">
 		<div class="container animate-section">
 			<h2 class="section-title">Om mig</h2>
 			<div class="about-text">
