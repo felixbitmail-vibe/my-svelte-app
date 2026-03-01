@@ -166,7 +166,8 @@
 			<p class="gallery-intro">Luftning i skov og mark – her er et indblik i turene.</p>
 			<div class="gallery">
 				<div class="gallery-item gallery-item--main" style="background-image: url('/images/dog-walk-nature.png')"></div>
-				<div class="gallery-item gallery-item--contain gallery-item--tall" style="background-image: url('/images/winter-dog-walk.png')"></div>
+				<div class="gallery-item gallery-item--contain gallery-item--top" style="background-image: url('/images/winter-dog-walk.png')"></div>
+				<div class="gallery-item gallery-item--contain gallery-item--bottom" style="background-image: url('/images/dog-portrait.png')"></div>
 			</div>
 			<p class="gallery-hint">Du kan tilføje flere billeder i mappen <code>static/images/</code>.</p>
 		</div>
@@ -495,7 +496,7 @@
 	.gallery {
 		display: grid;
 		grid-template-columns: 1.4fr 1fr;
-		grid-template-rows: repeat(3, 9rem);
+		grid-template-rows: repeat(2, 12rem);
 		gap: 0.75rem;
 		border-radius: 1rem;
 		overflow: hidden;
@@ -511,14 +512,18 @@
 		background-repeat: no-repeat;
 		background-color: transparent;
 	}
-	.gallery-item--tall {
-		grid-row: 1 / -1;
-		min-height: 100%;
-	}
 	.gallery-item--main {
 		grid-column: 1;
 		grid-row: 1 / -1;
 		min-height: 100%;
+	}
+	.gallery-item--top {
+		grid-column: 2;
+		grid-row: 1;
+	}
+	.gallery-item--bottom {
+		grid-column: 2;
+		grid-row: 2;
 	}
 	.gallery-hint {
 		text-align: center;
@@ -534,11 +539,19 @@
 	@media (max-width: 640px) {
 		.gallery {
 			grid-template-columns: 1fr;
-			grid-template-rows: 14rem 10rem;
+			grid-template-rows: 14rem 10rem 10rem;
 		}
 		.gallery-item--main {
 			grid-column: 1;
 			grid-row: 1;
+		}
+		.gallery-item--top {
+			grid-column: 1;
+			grid-row: 2;
+		}
+		.gallery-item--bottom {
+			grid-column: 1;
+			grid-row: 3;
 		}
 	}
 
