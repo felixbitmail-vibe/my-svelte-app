@@ -65,7 +65,7 @@
 		</div>
 	</section>
 
-	<!-- Om mig -->
+	<!-- Om Gjessø Hundelufter -->
 	<section class="section section--bg">
 		<div class="container animate-section">
 			<h2 class="section-title">Om Gjessø Hundelufter</h2>
@@ -77,6 +77,24 @@
 						hele dag med pasning, sørger jeg for, at din hund har det godt.
 					</p>
 				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Om mig -->
+	<section class="section section--white">
+		<div class="container animate-section">
+			<h2 class="section-title">Om mig</h2>
+			<div class="about-text">
+				<p>
+					Hej, jeg hedder Felix, og jeg tilbyder tryg og kærlig hundeluftning i lokalområdet. Jeg har mange års erfaring med at gå med både små og store hunde og elsker dyr og tid udendørs.
+				</p>
+				<p>
+					Jeg er ansvarlig, omsorgsfuld og pålidelig, og jeg sørger altid for, at din hund får en god og tryg tur. For alles sikkerhed går jeg ikke med aggressive hunde.
+				</p>
+				<p>
+					Jeg glæder mig til at passe godt på din hund!
+				</p>
 			</div>
 		</div>
 	</section>
