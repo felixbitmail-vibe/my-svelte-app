@@ -495,7 +495,7 @@
 	}
 	.gallery {
 		display: grid;
-		grid-template-columns: 1.4fr 1fr;
+		grid-template-columns: 1fr 1fr;
 		grid-template-rows: repeat(2, 12rem);
 		gap: 0.75rem;
 		border-radius: 1rem;
@@ -514,8 +514,7 @@
 	}
 	.gallery-item--main {
 		grid-column: 1;
-		grid-row: 1 / -1;
-		min-height: 100%;
+		grid-row: 1;
 	}
 	.gallery-item--top {
 		grid-column: 2;
