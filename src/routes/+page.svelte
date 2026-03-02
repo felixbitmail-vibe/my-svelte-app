@@ -515,12 +515,17 @@
 	}
 	.gallery-3d-item {
 		position: absolute;
-		inset: 0;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		width: 60%;
+		transform-origin: center center;
+		backface-visibility: hidden;
 		background-size: cover;
 		background-position: center;
 		border-radius: 1rem;
 		box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
-		transform: rotateY(calc(var(--i) * 40deg)) translateZ(26rem);
+		transform: rotateY(calc(var(--i) * 40deg)) translateZ(24rem) translateX(-50%);
 		transition: box-shadow 0.4s ease, transform 0.4s ease;
 	}
 	.gallery-3d-inner:hover {
@@ -553,7 +558,8 @@
 			height: 14rem;
 		}
 		.gallery-3d-item {
-			transform: rotateY(calc(var(--i) * 40deg)) translateZ(20rem);
+			width: 75%;
+			transform: rotateY(calc(var(--i) * 40deg)) translateZ(18rem) translateX(-50%);
 		}
 	}
 
