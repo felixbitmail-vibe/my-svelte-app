@@ -158,13 +158,11 @@
 					<div class="gallery-3d-inner">
 						<div class="gallery-3d-item" style="--i: 0; background-image: url('/images/dog-walk-nature.png')"></div>
 						<div class="gallery-3d-item" style="--i: 1; background-image: url('/images/winter-dog-walk.png')"></div>
-						<div class="gallery-3d-item" style="--i: 2; background-image: url('/images/dog-dachshund.png')"></div>
-						<div class="gallery-3d-item" style="--i: 3; background-image: url('/images/dog-portrait.png')"></div>
-						<div class="gallery-3d-item" style="--i: 4; background-image: url('/images/gallery-1.png')"></div>
-						<div class="gallery-3d-item" style="--i: 5; background-image: url('/images/gallery-2.png')"></div>
-						<div class="gallery-3d-item" style="--i: 6; background-image: url('/images/gallery-3.png')"></div>
-						<div class="gallery-3d-item" style="--i: 7; background-image: url('/images/gallery-5.png')"></div>
-						<div class="gallery-3d-item" style="--i: 8; background-image: url('/images/gallery-6.png')"></div>
+						<div class="gallery-3d-item" style="--i: 2; background-image: url('/images/gallery-1.png')"></div>
+						<div class="gallery-3d-item" style="--i: 3; background-image: url('/images/gallery-2.png')"></div>
+						<div class="gallery-3d-item" style="--i: 4; background-image: url('/images/gallery-3.png')"></div>
+						<div class="gallery-3d-item" style="--i: 5; background-image: url('/images/gallery-5.png')"></div>
+						<div class="gallery-3d-item" style="--i: 6; background-image: url('/images/gallery-6.png')"></div>
 					</div>
 				</div>
 				<p class="gallery-hint">Du kan tilføje flere billeder i mappen <code>static/images/</code>.</p>
