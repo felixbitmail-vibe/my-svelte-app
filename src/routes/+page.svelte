@@ -163,17 +163,19 @@
 	<section class="section section--bg">
 		<div class="container animate-section">
 			<h2 class="section-title">Ture og natur</h2>
-			<p class="gallery-intro">Luftning i skov og mark – her er et indblik i turene.</p>
-			<div class="gallery">
-				<div class="gallery-item" style="background-image: url('/images/dog-walk-nature.png')"></div>
-				<div class="gallery-item gallery-item--contain" style="background-image: url('/images/winter-dog-walk.png')"></div>
-				<div class="gallery-item gallery-item--contain" style="background-image: url('/images/dog-dachshund.png')"></div>
-				<div class="gallery-item gallery-item--contain" style="background-image: url('/images/dog-portrait.png')"></div>
-				<div class="gallery-item" style="background-image: url('/images/gallery-1.png')"></div>
-				<div class="gallery-item" style="background-image: url('/images/gallery-2.png')"></div>
-				<div class="gallery-item" style="background-image: url('/images/gallery-3.png')"></div>
-				<div class="gallery-item" style="background-image: url('/images/gallery-5.png')"></div>
-				<div class="gallery-item" style="background-image: url('/images/gallery-6.png')"></div>
+			<p class="gallery-intro">Se nogle af turene i skov og natur – vist som en rolig 3D-karusel.</p>
+			<div class="gallery-3d">
+				<div class="gallery-3d-inner">
+					<div class="gallery-3d-item" style="--i: 0; background-image: url('/images/dog-walk-nature.png')"></div>
+					<div class="gallery-3d-item" style="--i: 1; background-image: url('/images/winter-dog-walk.png')"></div>
+					<div class="gallery-3d-item" style="--i: 2; background-image: url('/images/dog-dachshund.png')"></div>
+					<div class="gallery-3d-item" style="--i: 3; background-image: url('/images/dog-portrait.png')"></div>
+					<div class="gallery-3d-item" style="--i: 4; background-image: url('/images/gallery-1.png')"></div>
+					<div class="gallery-3d-item" style="--i: 5; background-image: url('/images/gallery-2.png')"></div>
+					<div class="gallery-3d-item" style="--i: 6; background-image: url('/images/gallery-3.png')"></div>
+					<div class="gallery-3d-item" style="--i: 7; background-image: url('/images/gallery-5.png')"></div>
+					<div class="gallery-3d-item" style="--i: 8; background-image: url('/images/gallery-6.png')"></div>
+				</div>
 			</div>
 			<p class="gallery-hint">Du kan tilføje flere billeder i mappen <code>static/images/</code>.</p>
 		</div>
@@ -489,49 +491,69 @@
 		line-height: 1.5;
 	}
 
-	/* Gallery */
+	/* Gallery – 3D karusel */
 	.gallery-intro {
 		text-align: center;
-		color: #64748b;
-		margin-bottom: 0.75rem;
-		max-width: 36rem;
+		color: #e2e8f0;
+		margin-bottom: 1rem;
+		max-width: 38rem;
 		margin-left: auto;
 		margin-right: auto;
 	}
-	.gallery {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-auto-rows: 12rem;
-		gap: 0.75rem;
-		border-radius: 1rem;
-		overflow: hidden;
+	.gallery-3d {
+		display: flex;
+		justify-content: center;
+		margin-top: 0.5rem;
+		perspective: 1400px;
 	}
-	.gallery-item {
+	.gallery-3d-inner {
+		position: relative;
+		width: min(100%, 40rem);
+		height: 18rem;
+		transform-style: preserve-3d;
+		animation: gallery-rotate 38s linear infinite;
+	}
+	.gallery-3d-item {
+		position: absolute;
+		inset: 0;
 		background-size: cover;
 		background-position: center;
-		background-color: #e2e8f0;
-		min-height: 8rem;
+		border-radius: 1rem;
+		box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+		transform: rotateY(calc(var(--i) * 40deg)) translateZ(26rem);
+		transition: box-shadow 0.4s ease, transform 0.4s ease;
 	}
-	.gallery-item--contain {
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-color: transparent;
+	.gallery-3d-inner:hover {
+		animation-play-state: paused;
+	}
+	.gallery-3d-inner:hover .gallery-3d-item {
+		box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+	}
+	@keyframes gallery-rotate {
+		from {
+			transform: rotateY(0deg);
+		}
+		to {
+			transform: rotateY(-360deg);
+		}
 	}
 	.gallery-hint {
 		text-align: center;
 		font-size: 0.8125rem;
-		color: #94a3b8;
+		color: #d1fae5;
 		margin-top: 1rem;
 	}
 	.gallery-hint code {
-		background: #e2e8f0;
+		background: rgba(15, 23, 42, 0.6);
 		padding: 0.15rem 0.4rem;
 		border-radius: 0.25rem;
 	}
 	@media (max-width: 640px) {
-		.gallery {
-			grid-template-columns: 1fr;
-			grid-auto-rows: 10rem;
+		.gallery-3d-inner {
+			height: 14rem;
+		}
+		.gallery-3d-item {
+			transform: rotateY(calc(var(--i) * 40deg)) translateZ(20rem);
 		}
 	}
 
