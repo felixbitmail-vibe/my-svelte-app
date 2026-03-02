@@ -165,7 +165,6 @@
 						<div class="gallery-3d-item" style="--i: 6; background-image: url('/images/gallery-6.png')"></div>
 					</div>
 				</div>
-				<p class="gallery-hint">Du kan tilføje flere billeder i mappen <code>static/images/</code>.</p>
 			</div>
 		</div>
 	</section>
