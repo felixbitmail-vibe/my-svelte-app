@@ -287,7 +287,7 @@
 		padding: 2.25rem 1.25rem;
 	}
 	.section--gallery .container {
-		min-height: 34rem;
+		min-height: 28rem;
 		display: flex;
 		flex-direction: column;
 	}
