@@ -1,6 +1,6 @@
 /**
- * Beskærer karuselbilleder så det centrerede 4:3-udsnit beholdes
- * (giver ofte både ansigt og hund med i billedet).
+ * Let kanttrim af karuselbilleder så hele mennesket og hele hunden
+ * forbliver synlige (centreret 95 % af bredde og højde).
  * Kør: node scripts/crop-carousel-images.mjs
  */
 import sharp from 'sharp';
@@ -23,29 +23,21 @@ const CAROUSEL_FILES = [
   'gallery-6.png'
 ];
 
-const TARGET_ASPECT = 4 / 3; // 4:3 landscape
+/** Bevar 95 % af billedet fra centrum så hele person + hund ses. */
+const KEEP_RATIO = 0.95;
 
-async function centerCropTo43(inputPath, outputPath) {
+async function centerTrim(inputPath, outputPath) {
   const meta = await sharp(inputPath).metadata();
   const { width: w, height: h } = meta;
-  let cropWidth, cropHeight, left, top;
-
-  if (w / h > TARGET_ASPECT) {
-    cropHeight = h;
-    cropWidth = Math.round(h * TARGET_ASPECT);
-    left = Math.round((w - cropWidth) / 2);
-    top = 0;
-  } else {
-    cropWidth = w;
-    cropHeight = Math.round(w / TARGET_ASPECT);
-    left = 0;
-    top = Math.round((h - cropHeight) / 2);
-  }
+  const cropWidth = Math.round(w * KEEP_RATIO);
+  const cropHeight = Math.round(h * KEEP_RATIO);
+  const left = Math.round((w - cropWidth) / 2);
+  const top = Math.round((h - cropHeight) / 2);
 
   await sharp(inputPath)
     .extract({ left, top, width: cropWidth, height: cropHeight })
     .toFile(outputPath);
-  console.log(`Cropped: ${basename(inputPath)}`);
+  console.log(`Trimmed: ${basename(inputPath)}`);
 }
 
 async function main() {
@@ -57,10 +49,10 @@ async function main() {
       continue;
     }
     const tempPath = join(IMAGES_DIR, file.replace(/(\.[^.]+)$/, '.tmp$1'));
-    await centerCropTo43(inputPath, tempPath);
+    await centerTrim(inputPath, tempPath);
     await rename(tempPath, inputPath);
   }
-  console.log('Done. Carousel images updated with center 4:3 crop.');
+  console.log('Done. Carousel images trimmed (whole person + dog preserved).');
 }
 
 main().catch((e) => {
