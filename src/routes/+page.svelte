@@ -360,6 +360,8 @@
 		color: #14532d;
 		text-align: center;
 		margin-bottom: 1.5rem;
+		position: relative;
+		z-index: 2;
 	}
 
 	/* About */
@@ -499,15 +501,19 @@
 		max-width: 38rem;
 		margin-left: auto;
 		margin-right: auto;
+		position: relative;
+		z-index: 2;
 	}
 	.gallery-3d {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
-		margin-top: 1.5rem;
+		margin-top: 2.5rem;
 		margin-bottom: 0.5rem;
 		perspective: 1400px;
+		position: relative;
+		z-index: 1;
 	}
 	.gallery-3d-inner {
 		position: relative;
@@ -517,6 +523,7 @@
 		transform-style: preserve-3d;
 		transform-origin: center center;
 		animation: gallery-rotate 38s linear infinite;
+		z-index: 1;
 	}
 	.gallery-3d-item {
 		position: absolute;
@@ -532,6 +539,7 @@
 		box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
 		transform: rotateY(calc(var(--i) * 40deg)) translateZ(24rem) translateX(-50%);
 		transition: box-shadow 0.4s ease, transform 0.4s ease;
+		z-index: 1;
 	}
 	.gallery-3d-inner:hover {
 		animation-play-state: paused;
