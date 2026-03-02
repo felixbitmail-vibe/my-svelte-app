@@ -518,7 +518,7 @@
 		transform-origin: center center;
 		backface-visibility: hidden;
 		background-size: cover;
-		background-position: center;
+		background-position: center 25%;
 		border-radius: 1rem;
 		box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
 		transform: rotateY(calc(var(--i) * 40deg)) translateZ(24rem) translateX(-50%);
