@@ -31,9 +31,8 @@
 
 	const steps = [
 		{ num: 1, title: 'Book', text: 'Kontakt mig og fortæl om din hund og ønsket tid.' },
-		{ num: 2, title: 'Aftal', text: 'Vi aftaler tid, sted og varighed.' },
-		{ num: 3, title: 'Jeg henter', text: 'Jeg henter din hund og tager på tur.' },
-		{ num: 4, title: 'Glad hjem', text: 'Din hund kommer træt og tilfreds hjem igen.' }
+		{ num: 2, title: 'Jeg henter', text: 'Jeg henter din hund og tager på tur.' },
+		{ num: 3, title: 'Glad hjem', text: 'Din hund kommer træt og tilfreds hjem igen.' }
 	];
 </script>
 
