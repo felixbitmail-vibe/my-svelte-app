@@ -163,7 +163,7 @@
 	<section class="section section--bg">
 		<div class="container animate-section">
 			<h2 class="section-title">Ture og natur</h2>
-			<p class="gallery-intro">Se nogle af turene i skov og natur – vist som en rolig 3D-karusel.</p>
+			<p class="gallery-intro">Luftning i skov og mark – her er et indblik i turene.</p>
 			<div class="gallery-3d">
 				<div class="gallery-3d-inner">
 					<div class="gallery-3d-item" style="--i: 0; background-image: url('/images/dog-walk-nature.png')"></div>
@@ -497,7 +497,7 @@
 	.gallery-intro {
 		text-align: center;
 		color: #e2e8f0;
-		margin-bottom: 2rem;
+		margin-bottom: 3rem;
 		max-width: 38rem;
 		margin-left: auto;
 		margin-right: auto;
@@ -509,7 +509,7 @@
 		justify-content: center;
 		align-items: center;
 		width: 100%;
-		margin-top: 2.5rem;
+		margin-top: 0;
 		margin-bottom: 0.5rem;
 		perspective: 1400px;
 		position: relative;
