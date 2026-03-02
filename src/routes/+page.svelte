@@ -172,11 +172,8 @@
 				<div class="gallery-item" style="background-image: url('/images/gallery-1.png')"></div>
 				<div class="gallery-item" style="background-image: url('/images/gallery-2.png')"></div>
 				<div class="gallery-item" style="background-image: url('/images/gallery-3.png')"></div>
-				<div class="gallery-item" style="background-image: url('/images/gallery-4.png')"></div>
 				<div class="gallery-item" style="background-image: url('/images/gallery-5.png')"></div>
 				<div class="gallery-item" style="background-image: url('/images/gallery-6.png')"></div>
-				<div class="gallery-item" style="background-image: url('/images/gallery-7.png')"></div>
-				<div class="gallery-item" style="background-image: url('/images/gallery-8.png')"></div>
 			</div>
 			<p class="gallery-hint">Du kan tilføje flere billeder i mappen <code>static/images/</code>.</p>
 		</div>
@@ -187,9 +184,8 @@
 		<div class="container animate-section">
 			<h2 class="section-title">Kontakt og booking</h2>
 			<div class="contact-box">
-				<p class="contact-intro">Skriv eller ring – så finder vi en tid der passer.</p>
+				<p class="contact-intro">Ring eller send en sms – så finder vi en tid der passer.</p>
 				<div class="contact-details">
-					<a href="mailto:kontakt@gjesso-hundelufter.dk" class="contact-link">kontakt@gjesso-hundelufter.dk</a>
 					<a href="tel:+4529854561" class="contact-link">29 85 45 61</a>
 				</div>
 			</div>
