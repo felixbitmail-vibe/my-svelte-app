@@ -495,7 +495,7 @@
 	.gallery-intro {
 		text-align: center;
 		color: #e2e8f0;
-		margin-bottom: 1rem;
+		margin-bottom: 2rem;
 		max-width: 38rem;
 		margin-left: auto;
 		margin-right: auto;
@@ -503,14 +503,19 @@
 	.gallery-3d {
 		display: flex;
 		justify-content: center;
-		margin-top: 0.5rem;
+		align-items: center;
+		width: 100%;
+		margin-top: 1.5rem;
+		margin-bottom: 0.5rem;
 		perspective: 1400px;
 	}
 	.gallery-3d-inner {
 		position: relative;
 		width: min(100%, 40rem);
 		height: 18rem;
+		margin: 0 auto;
 		transform-style: preserve-3d;
+		transform-origin: center center;
 		animation: gallery-rotate 38s linear infinite;
 	}
 	.gallery-3d-item {
