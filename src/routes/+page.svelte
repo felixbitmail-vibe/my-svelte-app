@@ -160,24 +160,26 @@
 	</section>
 
 	<!-- Galleri: natur og glade hunde -->
-	<section class="section section--bg">
+	<section class="section section--bg section--gallery">
 		<div class="container animate-section">
 			<h2 class="section-title">Ture og natur</h2>
 			<p class="gallery-intro">Luftning i skov og mark – her er et indblik i turene.</p>
-			<div class="gallery-3d">
-				<div class="gallery-3d-inner">
-					<div class="gallery-3d-item" style="--i: 0; background-image: url('/images/dog-walk-nature.png')"></div>
-					<div class="gallery-3d-item" style="--i: 1; background-image: url('/images/winter-dog-walk.png')"></div>
-					<div class="gallery-3d-item" style="--i: 2; background-image: url('/images/dog-dachshund.png')"></div>
-					<div class="gallery-3d-item" style="--i: 3; background-image: url('/images/dog-portrait.png')"></div>
-					<div class="gallery-3d-item" style="--i: 4; background-image: url('/images/gallery-1.png')"></div>
-					<div class="gallery-3d-item" style="--i: 5; background-image: url('/images/gallery-2.png')"></div>
-					<div class="gallery-3d-item" style="--i: 6; background-image: url('/images/gallery-3.png')"></div>
-					<div class="gallery-3d-item" style="--i: 7; background-image: url('/images/gallery-5.png')"></div>
-					<div class="gallery-3d-item" style="--i: 8; background-image: url('/images/gallery-6.png')"></div>
+			<div class="gallery-3d-wrapper">
+				<div class="gallery-3d">
+					<div class="gallery-3d-inner">
+						<div class="gallery-3d-item" style="--i: 0; background-image: url('/images/dog-walk-nature.png')"></div>
+						<div class="gallery-3d-item" style="--i: 1; background-image: url('/images/winter-dog-walk.png')"></div>
+						<div class="gallery-3d-item" style="--i: 2; background-image: url('/images/dog-dachshund.png')"></div>
+						<div class="gallery-3d-item" style="--i: 3; background-image: url('/images/dog-portrait.png')"></div>
+						<div class="gallery-3d-item" style="--i: 4; background-image: url('/images/gallery-1.png')"></div>
+						<div class="gallery-3d-item" style="--i: 5; background-image: url('/images/gallery-2.png')"></div>
+						<div class="gallery-3d-item" style="--i: 6; background-image: url('/images/gallery-3.png')"></div>
+						<div class="gallery-3d-item" style="--i: 7; background-image: url('/images/gallery-5.png')"></div>
+						<div class="gallery-3d-item" style="--i: 8; background-image: url('/images/gallery-6.png')"></div>
+					</div>
 				</div>
+				<p class="gallery-hint">Du kan tilføje flere billeder i mappen <code>static/images/</code>.</p>
 			</div>
-			<p class="gallery-hint">Du kan tilføje flere billeder i mappen <code>static/images/</code>.</p>
 		</div>
 	</section>
 
@@ -311,6 +313,11 @@
 	/* Sections */
 	.section {
 		padding: 2.25rem 1.25rem;
+	}
+	.section--gallery .container {
+		min-height: 34rem;
+		display: flex;
+		flex-direction: column;
 	}
 	.section--white {
 		background: rgba(255, 255, 255, 0.97);
@@ -503,6 +510,13 @@
 		margin-right: auto;
 		position: relative;
 		z-index: 2;
+	}
+	.gallery-3d-wrapper {
+		margin-top: auto;
+		padding-bottom: 0.75rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	.gallery-3d {
 		display: flex;
