@@ -4,7 +4,7 @@
 	const prices = [
 		{ label: '30 min luftning', amount: '30 kr' },
 		{ label: '1 time luftning', amount: '60 kr' },
-		{ label: 'Dags pasning', amount: '100 kr' }
+		{ label: 'Dags pasning', amount: '150 kr' }
 	];
 
 	const reasons = [
