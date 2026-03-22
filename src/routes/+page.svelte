@@ -331,8 +331,11 @@
 	.section {
 		padding: 2.25rem 1.25rem;
 	}
+	.section--gallery {
+		padding-top: 1.75rem;
+		padding-bottom: 1.75rem;
+	}
 	.section--gallery .container {
-		min-height: 48rem;
 		display: flex;
 		flex-direction: column;
 	}
@@ -529,9 +532,9 @@
 		z-index: 2;
 	}
 	.gallery-carousel {
-		padding-bottom: 0.75rem;
+		padding-bottom: 0.5rem;
 		width: 100%;
-		max-width: 24rem;
+		max-width: 19rem;
 		margin-left: auto;
 		margin-right: auto;
 		position: relative;
@@ -541,7 +544,7 @@
 		position: relative;
 		width: 100%;
 		aspect-ratio: 3 / 4;
-		max-height: min(78vh, 40rem);
+		max-height: min(62vh, 28rem);
 		margin: 0 auto;
 		border-radius: 1rem;
 		overflow: hidden;
