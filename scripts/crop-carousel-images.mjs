@@ -11,15 +11,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const IMAGES_DIR = join(__dirname, '..', 'static', 'images');
 
-const CAROUSEL_FILES = [
-  'dog-walk-nature.png',
-  'winter-dog-walk.png',
-  'gallery-1.png',
-  'gallery-2.png',
-  'gallery-3.png',
-  'gallery-5.png',
-  'gallery-6.png'
-];
+const CAROUSEL_FILES = ['gallery-1.png'];
 
 /** Bevar 95 % af billedet fra centrum så hele person + hund ses. */
 const KEEP_RATIO = 0.95;

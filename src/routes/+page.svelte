@@ -34,6 +34,9 @@
 		{ num: 2, title: 'Jeg henter', text: 'Jeg henter din hund og tager på tur.' },
 		{ num: 3, title: 'Glad hjem', text: 'Din hund kommer træt og tilfreds hjem igen.' }
 	];
+
+	/** Kun portræt/højformat – filer i static/images der er højere end brede. */
+	const galleryPortraitImages = ['/images/gallery-1.png'];
 </script>
 
 <svelte:head>
@@ -154,14 +157,17 @@
 			<p class="gallery-intro">Luftning i skov og mark – her er et indblik i turene.</p>
 			<div class="gallery-3d-wrapper">
 				<div class="gallery-3d">
-					<div class="gallery-3d-inner">
-						<div class="gallery-3d-item" style="--i: 0; background-image: url('/images/dog-walk-nature.png')"></div>
-						<div class="gallery-3d-item" style="--i: 1; background-image: url('/images/winter-dog-walk.png')"></div>
-						<div class="gallery-3d-item" style="--i: 2; background-image: url('/images/gallery-1.png')"></div>
-						<div class="gallery-3d-item" style="--i: 3; background-image: url('/images/gallery-2.png')"></div>
-						<div class="gallery-3d-item" style="--i: 4; background-image: url('/images/gallery-3.png')"></div>
-						<div class="gallery-3d-item" style="--i: 5; background-image: url('/images/gallery-5.png')"></div>
-						<div class="gallery-3d-item" style="--i: 6; background-image: url('/images/gallery-6.png')"></div>
+					<div
+						class="gallery-3d-inner"
+						class:gallery-3d-inner--multi={galleryPortraitImages.length > 1}
+						style="--gallery-count: {galleryPortraitImages.length}"
+					>
+						{#each galleryPortraitImages as src, i}
+							<div
+								class="gallery-3d-item"
+								style="--i: {i}; background-image: url('{src}')"
+							></div>
+						{/each}
 					</div>
 				</div>
 			</div>
@@ -285,7 +291,7 @@
 		padding: 2.25rem 1.25rem;
 	}
 	.section--gallery .container {
-		min-height: 28rem;
+		min-height: 32rem;
 		display: flex;
 		flex-direction: column;
 	}
@@ -501,34 +507,45 @@
 	}
 	.gallery-3d-inner {
 		position: relative;
-		width: min(100%, 40rem);
-		height: 14.5rem;
+		width: min(100%, 20rem);
+		aspect-ratio: 3 / 4;
+		max-height: min(70vh, 34rem);
 		margin: 0 auto;
 		transform-style: preserve-3d;
 		transform-origin: center center;
-		animation: gallery-rotate 38s linear infinite;
 		z-index: 1;
+	}
+	.gallery-3d-inner--multi {
+		animation: gallery-rotate 38s linear infinite;
 	}
 	.gallery-3d-item {
 		position: absolute;
 		top: 0;
 		bottom: 0;
 		left: 50%;
-		width: 60%;
+		width: 100%;
+		max-width: 100%;
+		height: 100%;
 		transform-origin: center center;
 		backface-visibility: hidden;
 		background-size: cover;
-		background-position: center 25%;
+		background-position: center center;
 		border-radius: 1rem;
 		box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
-		transform: rotateY(calc(var(--i) * 40deg)) translateZ(24rem) translateX(-50%);
+		transform: translateX(-50%);
 		transition: box-shadow 0.4s ease, transform 0.4s ease;
 		z-index: 1;
 	}
-	.gallery-3d-inner:hover {
+	.gallery-3d-inner--multi .gallery-3d-item {
+		width: 78%;
+		height: 100%;
+		transform: rotateY(calc(var(--i) * (360deg / var(--gallery-count, 1))))
+			translateZ(14rem) translateX(-50%);
+	}
+	.gallery-3d-inner--multi:hover {
 		animation-play-state: paused;
 	}
-	.gallery-3d-inner:hover .gallery-3d-item {
+	.gallery-3d-inner--multi:hover .gallery-3d-item {
 		box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
 	}
 	@keyframes gallery-rotate {
@@ -552,11 +569,13 @@
 	}
 	@media (max-width: 640px) {
 		.gallery-3d-inner {
-			height: 11.5rem;
+			width: min(100%, 17rem);
+			max-height: min(65vh, 30rem);
 		}
-		.gallery-3d-item {
-			width: 75%;
-			transform: rotateY(calc(var(--i) * 40deg)) translateZ(18rem) translateX(-50%);
+		.gallery-3d-inner--multi .gallery-3d-item {
+			width: 82%;
+			transform: rotateY(calc(var(--i) * (360deg / var(--gallery-count, 1))))
+				translateZ(11rem) translateX(-50%);
 		}
 	}
 
