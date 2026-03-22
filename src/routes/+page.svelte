@@ -1,21 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	onMount(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add('visible');
-					}
-				});
-			},
-			{ threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-		);
-		document.querySelectorAll('.animate-section').forEach((el) => observer.observe(el));
-		return () => observer.disconnect();
-	});
-
 	const prices = [
 		{ label: '30 min luftning', amount: '30 kr' },
 		{ label: '1 time luftning', amount: '60 kr' },
@@ -35,8 +20,49 @@
 		{ num: 3, title: 'Glad hjem', text: 'Din hund kommer træt og tilfreds hjem igen.' }
 	];
 
-	/** Kun portræt/højformat – filer i static/images der er højere end brede. */
-	const galleryPortraitImages = ['/images/gallery-1.png'];
+	const GALLERY_INTERVAL_MS = 5000;
+
+	const galleryFiles = [
+		'1000012265 (2).jpg',
+		'1000012276 (1).jpg',
+		'1000012286.jpg',
+		'1000012287 (1).jpg',
+		'1000012294.jpg',
+		'IMG_9245.jpeg',
+		'IMG_9446.jpeg'
+	];
+
+	const galleryImages = galleryFiles.map((f) => `/images/${encodeURIComponent(f)}`);
+
+	let galleryIndex = 0;
+	let galleryPaused = false;
+
+	onMount(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			},
+			{ threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+		);
+		document.querySelectorAll('.animate-section').forEach((el) => observer.observe(el));
+
+		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const tick = reduceMotion
+			? null
+			: window.setInterval(() => {
+					if (galleryPaused) return;
+					galleryIndex = (galleryIndex + 1) % galleryImages.length;
+				}, GALLERY_INTERVAL_MS);
+
+		return () => {
+			observer.disconnect();
+			if (tick !== null) window.clearInterval(tick);
+		};
+	});
 </script>
 
 <svelte:head>
@@ -155,20 +181,35 @@
 		<div class="container animate-section">
 			<h2 class="section-title">Ture og natur</h2>
 			<p class="gallery-intro">Luftning i skov og mark – her er et indblik i turene.</p>
-			<div class="gallery-3d-wrapper">
-				<div class="gallery-3d">
-					<div
-						class="gallery-3d-inner"
-						class:gallery-3d-inner--multi={galleryPortraitImages.length > 1}
-						style="--gallery-count: {galleryPortraitImages.length}"
-					>
-						{#each galleryPortraitImages as src, i}
-							<div
-								class="gallery-3d-item"
-								style="--i: {i}; background-image: url('{src}')"
-							></div>
-						{/each}
-					</div>
+			<div
+				class="gallery-carousel"
+				role="region"
+				aria-roledescription="carousel"
+				aria-label="Billeder fra ture"
+				onmouseenter={() => (galleryPaused = true)}
+				onmouseleave={() => (galleryPaused = false)}
+			>
+				<div class="gallery-carousel-viewport">
+					{#each galleryImages as src, i}
+						<div
+							class="gallery-carousel-slide"
+							class:gallery-carousel-slide--active={i === galleryIndex}
+							style="background-image: url('{src}')"
+							aria-hidden={i !== galleryIndex}
+						></div>
+					{/each}
+				</div>
+				<div class="gallery-carousel-dots" aria-label="Vælg billede">
+					{#each galleryImages as _, i}
+						<button
+							type="button"
+							class="gallery-carousel-dot"
+							class:gallery-carousel-dot--active={i === galleryIndex}
+							aria-label="Billede {i + 1} af {galleryImages.length}"
+							aria-current={i === galleryIndex ? 'true' : undefined}
+							onclick={() => (galleryIndex = i)}
+						></button>
+					{/each}
 				</div>
 			</div>
 		</div>
@@ -291,7 +332,7 @@
 		padding: 2.25rem 1.25rem;
 	}
 	.section--gallery .container {
-		min-height: 32rem;
+		min-height: 26rem;
 		display: flex;
 		flex-direction: column;
 	}
@@ -476,85 +517,86 @@
 		line-height: 1.5;
 	}
 
-	/* Gallery – 3D karusel */
+	/* Gallery – karusel med automatisk skift */
 	.gallery-intro {
 		text-align: center;
 		color: #e2e8f0;
-		margin-bottom: 3rem;
+		margin-bottom: 2rem;
 		max-width: 38rem;
 		margin-left: auto;
 		margin-right: auto;
 		position: relative;
 		z-index: 2;
 	}
-	.gallery-3d-wrapper {
+	.gallery-carousel {
 		margin-top: auto;
 		padding-bottom: 0.75rem;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	.gallery-3d {
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		width: 100%;
-		margin-top: 0;
-		margin-bottom: 0.5rem;
-		perspective: 1400px;
+		max-width: 42rem;
+		margin-left: auto;
+		margin-right: auto;
 		position: relative;
 		z-index: 1;
 	}
-	.gallery-3d-inner {
+	.gallery-carousel-viewport {
 		position: relative;
-		width: min(100%, 20rem);
-		aspect-ratio: 3 / 4;
-		max-height: min(70vh, 34rem);
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		max-height: min(72vh, 28rem);
 		margin: 0 auto;
-		transform-style: preserve-3d;
-		transform-origin: center center;
-		z-index: 1;
+		border-radius: 1rem;
+		overflow: hidden;
+		box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+		background: rgba(0, 0, 0, 0.25);
 	}
-	.gallery-3d-inner--multi {
-		animation: gallery-rotate 38s linear infinite;
-	}
-	.gallery-3d-item {
+	.gallery-carousel-slide {
 		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 50%;
-		width: 100%;
-		max-width: 100%;
-		height: 100%;
-		transform-origin: center center;
-		backface-visibility: hidden;
+		inset: 0;
 		background-size: cover;
 		background-position: center center;
-		border-radius: 1rem;
-		box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
-		transform: translateX(-50%);
-		transition: box-shadow 0.4s ease, transform 0.4s ease;
+		opacity: 0;
+		transition: opacity 0.65s ease;
+		pointer-events: none;
+		z-index: 0;
+	}
+	.gallery-carousel-slide--active {
+		opacity: 1;
 		z-index: 1;
 	}
-	.gallery-3d-inner--multi .gallery-3d-item {
-		width: 78%;
-		height: 100%;
-		transform: rotateY(calc(var(--i) * (360deg / var(--gallery-count, 1))))
-			translateZ(14rem) translateX(-50%);
-	}
-	.gallery-3d-inner--multi:hover {
-		animation-play-state: paused;
-	}
-	.gallery-3d-inner--multi:hover .gallery-3d-item {
-		box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
-	}
-	@keyframes gallery-rotate {
-		from {
-			transform: rotateY(0deg);
+	@media (prefers-reduced-motion: reduce) {
+		.gallery-carousel-slide {
+			transition: none;
 		}
-		to {
-			transform: rotateY(-360deg);
-		}
+	}
+	.gallery-carousel-dots {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		justify-content: center;
+		align-items: center;
+		margin-top: 1rem;
+	}
+	.gallery-carousel-dot {
+		width: 0.65rem;
+		height: 0.65rem;
+		padding: 0;
+		border: none;
+		border-radius: 50%;
+		background: rgba(255, 255, 255, 0.35);
+		cursor: pointer;
+		transition: background 0.2s ease, transform 0.2s ease;
+	}
+	.gallery-carousel-dot:hover {
+		background: rgba(255, 255, 255, 0.55);
+		transform: scale(1.15);
+	}
+	.gallery-carousel-dot--active {
+		background: #d1fae5;
+		transform: scale(1.2);
+	}
+	.gallery-carousel-dot:focus-visible {
+		outline: 2px solid #d1fae5;
+		outline-offset: 2px;
 	}
 	.gallery-hint {
 		text-align: center;
@@ -566,17 +608,6 @@
 		background: rgba(15, 23, 42, 0.6);
 		padding: 0.15rem 0.4rem;
 		border-radius: 0.25rem;
-	}
-	@media (max-width: 640px) {
-		.gallery-3d-inner {
-			width: min(100%, 17rem);
-			max-height: min(65vh, 30rem);
-		}
-		.gallery-3d-inner--multi .gallery-3d-item {
-			width: 82%;
-			transform: rotateY(calc(var(--i) * (360deg / var(--gallery-count, 1))))
-				translateZ(11rem) translateX(-50%);
-		}
 	}
 
 	/* Contact */
