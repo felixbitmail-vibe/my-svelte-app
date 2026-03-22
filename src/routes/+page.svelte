@@ -20,7 +20,7 @@
 		{ num: 3, title: 'Glad hjem', text: 'Din hund kommer træt og tilfreds hjem igen.' }
 	];
 
-	const GALLERY_INTERVAL_MS = 5000;
+	const GALLERY_INTERVAL_MS = 3000;
 
 	const galleryFiles = [
 		'1000012265 (2).jpg',
@@ -332,7 +332,7 @@
 		padding: 2.25rem 1.25rem;
 	}
 	.section--gallery .container {
-		min-height: 26rem;
+		min-height: 48rem;
 		display: flex;
 		flex-direction: column;
 	}
@@ -532,7 +532,7 @@
 		margin-top: auto;
 		padding-bottom: 0.75rem;
 		width: 100%;
-		max-width: 42rem;
+		max-width: 24rem;
 		margin-left: auto;
 		margin-right: auto;
 		position: relative;
@@ -541,8 +541,8 @@
 	.gallery-carousel-viewport {
 		position: relative;
 		width: 100%;
-		aspect-ratio: 4 / 3;
-		max-height: min(72vh, 28rem);
+		aspect-ratio: 3 / 4;
+		max-height: min(78vh, 40rem);
 		margin: 0 auto;
 		border-radius: 1rem;
 		overflow: hidden;
