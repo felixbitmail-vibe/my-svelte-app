@@ -90,8 +90,8 @@
 				<div class="about-text">
 					<p>
 						Jeg tilbyder hundeluftning med fokus på trivsel og natur. Din hund får motion, frisk luft og
-						opmærksomhed. Uanset om det er en kort tur på en halv time eller en
-						hele dag med pasning, sørger jeg for, at din hund har det godt.
+						opmærksomhed. Uanset om det er en kort tur på en halv time eller en hel dag med pasning,
+						sørger jeg for, at din hund har det godt.
 					</p>
 				</div>
 			</div>
