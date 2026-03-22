@@ -77,7 +77,7 @@
 		<div class="hero-overlay"></div>
 		<div class="hero-content animate-section">
 			<h1 class="hero-title">Tryg hundeluftning i Gjessø.</h1>
-			<p class="hero-subtitle">For dig og din hund – 30 min, time eller hele dage i trygge hænder</p>
+			<p class="hero-subtitle">For dig og din hund – 30 min, en time eller hele dage i trygge hænder</p>
 			<a href="#priser" class="hero-cta">Se priser og book</a>
 		</div>
 	</section>
