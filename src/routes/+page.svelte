@@ -521,7 +521,7 @@
 	.gallery-intro {
 		text-align: center;
 		color: #e2e8f0;
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 		max-width: 38rem;
 		margin-left: auto;
 		margin-right: auto;
@@ -529,7 +529,6 @@
 		z-index: 2;
 	}
 	.gallery-carousel {
-		margin-top: auto;
 		padding-bottom: 0.75rem;
 		width: 100%;
 		max-width: 24rem;
